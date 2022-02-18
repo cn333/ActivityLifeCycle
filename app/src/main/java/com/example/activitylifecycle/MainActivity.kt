@@ -1,6 +1,7 @@
 package com.example.activitylifecycle
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -89,18 +90,23 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         Log.d(TAG, "onSaveInstanceState")
-        outState.putString(DISCOUNT_CONFIRMATION_MESSAGE, binding.discountCodeConfirmation.text.toString())
-        outState.putString(DISCOUNT_CODE, binding.discountCode.text.toString())
+        //outState.putString(DISCOUNT_CONFIRMATION_MESSAGE, binding.discountCodeConfirmation.text.toString())
+        //outState.putString(DISCOUNT_CODE, binding.discountCode.text.toString())
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         Log.d(TAG, "onRestoreInstanceState")
 
-        binding.discountCodeConfirmation.text =
-            savedInstanceState.getString(DISCOUNT_CONFIRMATION_MESSAGE, "")
-        binding.discountCode.text = savedInstanceState.getString(DISCOUNT_CODE, "")
+        //binding.discountCodeConfirmation.text =
+        //    savedInstanceState.getString(DISCOUNT_CONFIRMATION_MESSAGE, "")
+        //binding.discountCode.text = savedInstanceState.getString(DISCOUNT_CODE, "")
 
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        Log.d(TAG, "onConfigurationChanged")
     }
 
     companion object {
